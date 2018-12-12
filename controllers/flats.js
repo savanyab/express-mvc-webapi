@@ -10,6 +10,22 @@ flats.get('/', (req,res) => {
         });
 });
 
+// show
+flats.get('/:id', (req, res) => {
+    models.Flat.findById(req.params.id)
+        .then(flat => {
+            res.json(flat);
+        });
+});
+
+// create
+flats.post('/', (req, res) => {
+    models.Flat.create(req.body)
+        .then(flat => {
+            res.json(flat);
+        });
+});
+
 
 
 module.exports = flats;
